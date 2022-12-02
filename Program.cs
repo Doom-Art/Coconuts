@@ -5,20 +5,26 @@
         static void Main(string[] args)
         {
             foreach (string i in File.ReadLines(@"coconut_test.txt")){
-                int c = 0;
-                int x;
-                int p;
-                bool success = true;
-                while (success)
+                int c = 3121;
+                Int32.TryParse(i, out int x);
+                double p;
+                bool success = false;
+                while (!success)
                 {
                     c++;
-                    Int32.TryParse(i, out x);
                     p = c;
                     for (int j = 0; j < 5; j++)
                     {
-
+                        p = (x - 1) * ((p - 1) / x);
+                        if (!Int32.TryParse(p.ToString(), out int e)){
+                            break;
+                        }
+                    }
+                    if (Int32.TryParse(p.ToString(), out int d)){
+                        success = true;
                     }
                 }
+                Console.WriteLine($"For {x} men, the smallest number of coconuts is {c}");
             }
         }
     }
