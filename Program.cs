@@ -5,9 +5,13 @@
         static void Main(string[] args)
         {
             foreach (string i in File.ReadLines(@"coconut_test.txt")){
-                int c = 3121;
+                int c = 3120;
                 Int32.TryParse(i, out int x);
                 double p;
+                if (x >= 30)
+                    c = 24299970;
+                else if (x >= 20)
+                    c = 3199980;
                 bool success = false;
                 while (!success)
                 {
